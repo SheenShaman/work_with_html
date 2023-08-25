@@ -7,7 +7,7 @@ serverPort = 8080
 
 class MyServer(BaseHTTPRequestHandler):
     def __get_html_content(self):
-        return """ <!doctype html>
+        return """<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -296,7 +296,7 @@ class MyServer(BaseHTTPRequestHandler):
                 </div>
                 <div class="col-6">
                     <h3 class="my-0 fw-normal">Форма</h3>
-                    <form class="row g-3">
+                    <form class="row g-2">
                         <div class="card-body">
                             <label for="inputName" class="form-label">Имя</label>
                             <input type="text" class="form-control" id="inputName">
@@ -330,7 +330,52 @@ class MyServer(BaseHTTPRequestHandler):
                     14 дней, две недели.
                 </div>
             </div>
-
+            <table class="table table-bordered border-dark">
+                <thead>
+                <tr>
+                    <th scope="col">Номер</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Цена за единицу</th>
+                    <th scope="col">Количество</th>
+                    <th scope="col">Итого</th>
+                    <th scope="col">Статус заказа</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="alert alert-primary" role="alert">
+                    <th scope="row">1</th>
+                    <td>Клавиатура</td>
+                    <td>2500</td>
+                    <td>4</td>
+                    <td>10000</td>
+                    <td>Новый</td>
+                </tr>
+                <tr class="alert alert-warning" role="alert" >
+                    <th scope="row">2</th>
+                    <td>Мышь</td>
+                    <td>500</td>
+                    <td>1</td>
+                    <td>500</td>
+                    <td>Обработка</td>
+                </tr>
+                <tr class="alert alert-success" role="alert">
+                    <th scope="row">3</th>
+                    <td>Коврик</td>
+                    <td>500</td>
+                    <td>10</td>
+                    <td>5000</td>
+                    <td>Обработан</td>
+                </tr>
+                <tr class="alert alert-danger" role="alert">
+                    <th scope="row">4</th>
+                    <td>Монитор</td>
+                    <td>10000</td>
+                    <td>1</td>
+                    <td>10000</td>
+                    <td>Отмена</td>
+                </tr>
+                </tbody>
+            </table>
         </main>
     </div>
 </main>
@@ -350,8 +395,7 @@ class MyServer(BaseHTTPRequestHandler):
     })()
 </script>
 </body>
-</html> """
-
+</html>"""
 
     def do_GET(self):
         query_components = parse_qs(urlparse(self.path).query)
